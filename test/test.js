@@ -3,8 +3,8 @@ const jsnik = require('../lib');
 
 test('layer, single style', function(t) {
   const map = jsnik
-  .createMap({})
-  .layer('1', {'type': 'geojson'});
+    .createMap({})
+    .layer('1', { type: 'geojson' });
   const expected =
     '<Map>' +
       '<Layer>' +
@@ -14,14 +14,14 @@ test('layer, single style', function(t) {
         '</Datasource>' +
       '</Layer>' +
     '</Map>';
-  t.equal(map.mapEle.end(), expected);
+  t.equal(map.stringify(), expected);
   t.end();
 });
 
-test('layer, multiple styles', function(t) {
+test('layer, multiple styles', (t) => {
   const map = jsnik
   .createMap({})
-  .layer(['1', '2', '3'], {}, {'cache-features': 'true'});
+  .layer(['1', '2', '3'], {}, { cacheFeatures: true });
   const expected =
     '<Map>' +
       '<Layer cache-features="true">' +
@@ -31,14 +31,14 @@ test('layer, multiple styles', function(t) {
         '<Datasource/>' +
       '</Layer>' +
     '</Map>';
-  t.equal(map.mapEle.end(), expected);
+  t.equal(map.stringify(), expected);
   t.end();
 });
 
-test('sqlLayer, single style', function(t) {
+test('sqlLayer, single style', (t) => {
   const map = jsnik
-  .createMap({})
-  .sqlLayer('1', 'select * from table');
+    .createMap({})
+    .sqlLayer('1', 'select * from table');
   const expected =
     '<Map>' +
       '<Layer>' +
@@ -48,14 +48,14 @@ test('sqlLayer, single style', function(t) {
         '</Datasource>' +
       '</Layer>' +
     '</Map>';
-  t.equal(map.mapEle.end(), expected);
+  t.equal(map.stringify(), expected);
   t.end();
 });
 
-test('sqlLayer, multiple styles', function(t) {
+test('sqlLayer, multiple styles', (t) => {
   const map = jsnik
-  .createMap({})
-  .sqlLayer(['1', '2', '3'], 'select * from table', {'cache-features': 'true'});
+    .createMap({})
+    .sqlLayer(['1', '2', '3'], 'select * from table', { cacheFeatures: true });
   const expected =
     '<Map>' +
       '<Layer cache-features="true">' +
@@ -67,6 +67,6 @@ test('sqlLayer, multiple styles', function(t) {
         '</Datasource>' +
       '</Layer>' +
     '</Map>';
-  t.equal(map.mapEle.end(), expected);
+  t.equal(map.stringify(), expected);
   t.end();
 });
