@@ -13,6 +13,10 @@
   "author": "Martin Ždila <martin.zdila@freemap.sk>",
   "license": "ISC",
   "dependencies": {
+    "tape": "^4.9.2",
     "xmlbuilder": "10.1.1"
+  },
+  "scripts": {
+    "test": "node test/test.js"
   }
 }

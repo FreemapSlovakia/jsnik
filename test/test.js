@@ -1,0 +1,72 @@
+const test = require('tape');
+const jsnik = require('../lib');
+
+test('layer, single style', function(t) {
+  const map = jsnik
+  .createMap({})
+  .layer('1', {'type': 'geojson'});
+  const expected =
+    '<Map>' +
+      '<Layer>' +
+        '<StyleName>1</StyleName>' +
+        '<Datasource>' +
+          '<Parameter name="type">geojson</Parameter>' +
+        '</Datasource>' +
+      '</Layer>' +
+    '</Map>';
+  t.equal(map.mapEle.end(), expected);
+  t.end();
+});
+
+test('layer, multiple styles', function(t) {
+  const map = jsnik
+  .createMap({})
+  .layer(['1', '2', '3'], {}, {'cache-features': 'true'});
+  const expected =
+    '<Map>' +
+      '<Layer cache-features="true">' +
+        '<StyleName>1</StyleName>' +
+        '<StyleName>2</StyleName>' +
+        '<StyleName>3</StyleName>' +
+        '<Datasource/>' +
+      '</Layer>' +
+    '</Map>';
+  t.equal(map.mapEle.end(), expected);
+  t.end();
+});
+
+test('sqlLayer, single style', function(t) {
+  const map = jsnik
+  .createMap({})
+  .sqlLayer('1', 'select * from table');
+  const expected =
+    '<Map>' +
+      '<Layer>' +
+        '<StyleName>1</StyleName>' +
+        '<Datasource base="db">' +
+          '<Parameter name="table">(select * from table) as foo</Parameter>' +
+        '</Datasource>' +
+      '</Layer>' +
+    '</Map>';
+  t.equal(map.mapEle.end(), expected);
+  t.end();
+});
+
+test('sqlLayer, multiple styles', function(t) {
+  const map = jsnik
+  .createMap({})
+  .sqlLayer(['1', '2', '3'], 'select * from table', {'cache-features': 'true'});
+  const expected =
+    '<Map>' +
+      '<Layer cache-features="true">' +
+        '<StyleName>1</StyleName>' +
+        '<StyleName>2</StyleName>' +
+        '<StyleName>3</StyleName>' +
+        '<Datasource base="db">' +
+          '<Parameter name="table">(select * from table) as foo</Parameter>' +
+        '</Datasource>' +
+      '</Layer>' +
+    '</Map>';
+  t.equal(map.mapEle.end(), expected);
+  t.end();
+});
