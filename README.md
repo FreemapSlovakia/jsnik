@@ -10,6 +10,6 @@ npm install jsnik
 
 ## Example
 
-Mapnik configuration in JS: https://github.com/FreemapSlovakia/freemap-mapnik/blob/master/app/style/index.js
+Mapnik configuration in JS: https://github.com/FreemapSlovakia/freemap-mapnik/tree/master/style
 
 Resulting map: https://www.freemap.sk/?map=10/48.725397/19.414215&layers=X
