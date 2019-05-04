@@ -1,6 +1,6 @@
 {
   "name": "jsnik",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Library for generating Mapnik configuration in JS",
   "main": "lib/index.js",
   "repository": {
