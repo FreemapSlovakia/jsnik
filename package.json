@@ -1,6 +1,6 @@
 {
   "name": "jsnik",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Library for generating Mapnik configuration in JS",
   "main": "lib/index.js",
   "repository": {
@@ -13,7 +13,7 @@
   "author": "Martin Ždila <martin.zdila@freemap.sk>",
   "license": "ISC",
   "dependencies": {
-    "tape": "^5.0.1",
+    "tape": "^5.1.1",
     "xmlbuilder": "15.1.1"
   },
   "scripts": {
