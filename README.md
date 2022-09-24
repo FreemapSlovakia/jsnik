@@ -2,6 +2,8 @@
 
 JsNik is node library for generating Mapnik configuration in JS. This adds all the benefits of scripting like preventing repetition, programatic style generation, etc.
 
+**NOTE** We recommend to use [JsxNik](https://github.com/FreemapSlovakia/jsxnik) instead.
+
 ## Installation
 
 ```
